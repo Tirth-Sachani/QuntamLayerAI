@@ -2,13 +2,13 @@ const firebase = require('firebase/compat/app');
 require('firebase/compat/firestore');
 
 const firebaseConfig = {
-    apiKey: "AIzaSyB7TU51XzAqbCnjuT-8RU2PXOSCUqVt8S4",
-    authDomain: "vitaflowstcak-com.firebaseapp.com",
-    projectId: "vitaflowstcak-com",
-    storageBucket: "vitaflowstcak-com.firebasestorage.app",
-    messagingSenderId: "135830845952",
-    appId: "1:135830845952:web:964e28b75a904a5f8176e5",
-    measurementId: "G-XR14388F5H"
+    apiKey: "AIzaSyAdJfYLpUWiuVpfPSjJvy8AhK8waShCufA",
+    authDomain: "quntamlayerai.firebaseapp.com",
+    projectId: "quntamlayerai",
+    storageBucket: "quntamlayerai.firebasestorage.app",
+    messagingSenderId: "762818913156",
+    appId: "1:762818913156:web:62b9740d5def777dda73d1",
+    measurementId: "G-2RX3TZ50Y8"
 };
 
 // Initialize Firebase
