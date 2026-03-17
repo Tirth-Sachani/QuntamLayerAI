@@ -17,9 +17,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 <div className="h-16 flex items-center px-6 border-b border-gray-100">
                     <div className="flex items-center gap-2">
                         <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                            <span className="text-white text-sm font-bold">V</span>
+                            <span className="text-white text-sm font-bold">Q</span>
                         </div>
-                        <span className="text-lg font-bold tracking-tight text-gray-900">VitaFlow CRM</span>
+                        <span className="text-lg font-bold tracking-tight text-gray-900">QuntamLayerAI CRM</span>
                     </div>
                 </div>
                 <nav className="flex-1 p-4 space-y-1">

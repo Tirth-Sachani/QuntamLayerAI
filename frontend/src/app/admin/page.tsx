@@ -43,9 +43,9 @@ export default function AdminLoginPage() {
                 {/* Logo */}
                 <div className="text-center mb-8">
                     <div className="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-blue-600/20">
-                        <span className="text-white text-2xl font-bold">V</span>
+                        <span className="text-white text-2xl font-bold">Q</span>
                     </div>
-                    <h1 className="text-2xl font-bold text-gray-900 tracking-tight">VitaFlow Admin</h1>
+                    <h1 className="text-2xl font-bold text-gray-900 tracking-tight">QuntamLayerAI Admin</h1>
                     <p className="text-gray-500 text-sm mt-1">Sign in to your admin dashboard</p>
                 </div>
 
