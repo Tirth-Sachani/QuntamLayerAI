@@ -20,7 +20,6 @@
     "firebase": "^12.10.0",
     "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.3",
-    "mongoose": "^9.2.4",
     "nodemailer": "^8.0.1"
   },
   "devDependencies": {
