@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@hookform/resolvers": "^5.2.2",
     "@studio-freight/lenis": "^1.0.42",
     "@tsparticles/engine": "^3.9.1",

@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "name": "Sarah Johnson",
+        "company": "TechCorp",
+        "rating": 5,
+        "image": "https://i.pravatar.cc/150?u=sarah",
+        "review": "The execution framework dramatically improved our operational efficiency and deployed with zero downtime."
+    },
+    {
+        "id": 2,
+        "name": "Michael Chen",
+        "company": "AI Startup",
+        "rating": 5,
+        "image": "https://i.pravatar.cc/150?u=michael",
+        "review": "Their AI infrastructure expertise and agile sprints are unmatched in the industry."
+    },
+    {
+        "id": 3,
+        "name": "Emily Davis",
+        "company": "FinTech Solutions",
+        "rating": 5,
+        "image": "https://i.pravatar.cc/150?u=emily",
+        "review": "Penetration testing and compliance audits gave us the security confidence we needed to scale."
+    },
+    {
+        "id": 4,
+        "name": "David Wilson",
+        "company": "HealthData Inc.",
+        "rating": 4,
+        "image": "https://i.pravatar.cc/150?u=david",
+        "review": "The system design and technology selection process was incredibly thorough and future-proof."
+    },
+    {
+        "id": 5,
+        "name": "Jessica Taylor",
+        "company": "E-commerce Plus",
+        "rating": 5,
+        "image": "https://i.pravatar.cc/150?u=jessica",
+        "review": "Performance monitoring and scaling optimization completely transformed our workflow."
+    },
+    {
+        "id": 6,
+        "name": "James Anderson",
+        "company": "Logistics Next",
+        "rating": 5,
+        "image": "https://i.pravatar.cc/150?u=james",
+        "review": "A highly reliable enterprise deployment. The architecture handles our load perfectly."
+    },
+    {
+        "id": 7,
+        "name": "Olivia Martinez",
+        "company": "CloudScale",
+        "rating": 5,
+        "image": "https://i.pravatar.cc/150?u=olivia",
+        "review": "Requirements analysis was spot on, and the discovery phase saved us months of rework."
+    },
+    {
+        "id": 8,
+        "name": "William Thomas",
+        "company": "Crypto Secure",
+        "rating": 4,
+        "image": "https://i.pravatar.cc/150?u=william",
+        "review": "Zero-downtime deployment for our main platform. Cannot recommend them enough for complex architecture."
+    }
+]

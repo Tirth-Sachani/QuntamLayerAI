@@ -1,14 +1,16 @@
 "use client";
 
+import { useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "../ui/Button";
 import Link from "next/link";
 import { ArrowRight, Play } from "lucide-react";
 import { HeroParticles } from "../animations/HeroParticles";
-import { TextReveal } from "../animations/TextReveal";
+import { RainText } from "../animations/RainText";
 
 export function HeroSection() {
     const { scrollY } = useScroll();
+    const [phase1Finished, setPhase1Finished] = useState(false);
 
     const y1 = useTransform(scrollY, [0, 5000], [0, -500]);
     const y2 = useTransform(scrollY, [0, 5000], [0, -700]);
@@ -50,13 +52,17 @@ export function HeroSection() {
                             Enterprise Infrastructure
                         </div>
 
-                        <h1 className="text-[3.5rem] md:text-[5rem] lg:text-[6.5rem] font-black leading-[0.95] tracking-[-0.03em] mb-8 text-foreground">
-                            <TextReveal text="Built for scale." />{" "}
-                            <span className="block text-gradient mt-2 pb-2"><TextReveal text="Engineered for Performance." delay={0.2} /></span>
+                        <h1 className="text-[3.5rem] md:text-[5rem] lg:text-[6.5rem] font-black leading-[0.95] tracking-[-0.03em] mb-8 text-foreground flex flex-col items-center w-full">
+                            <RainText text="Built for scale." onComplete={() => setPhase1Finished(true)} />{" "}
+                            <div className="block w-full text-black mt-2 pb-2 min-h-[1.2em]">
+                                {phase1Finished && (
+                                    <RainText text="Engineered for Performance." delay={0} />
+                                )}
+                            </div>
                         </h1>
 
-                        <p className="text-xl md:text-2xl text-secondary-text max-w-2xl mx-auto mb-12 leading-relaxed font-light tracking-tight">
-                            <TextReveal text="Designing advanced digital infrastructure for the world's most demanding enterprise applications." delay={0.4} />
+                        <p className="text-xl md:text-2xl text-secondary-text max-w-2xl mx-auto mb-12 leading-relaxed font-light tracking-tight px-4">
+                            Designing advanced digital infrastructure for the world's most demanding enterprise applications.
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">

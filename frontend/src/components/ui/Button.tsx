@@ -14,6 +14,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             <button
                 ref={ref}
                 disabled={isLoading || props.disabled}
+                suppressHydrationWarning
                 className={cn(
                     "inline-flex items-center justify-center whitespace-nowrap rounded-[40px] font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 disabled:pointer-events-none disabled:opacity-50 hover:-translate-y-0.5 shadow-sm hover:shadow-md",
                     {

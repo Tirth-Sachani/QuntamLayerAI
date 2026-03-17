@@ -139,7 +139,7 @@ export function ContactSection() {
                     >
                         <div className="rounded-[32px] border border-border-light bg-white shadow-[0_20px_50px_rgba(0,0,0,0.04)] p-10 md:p-12 relative z-20">
                             <h3 className="text-2xl font-bold mb-8 tracking-tight">Initialize Project</h3>
-                            <form onSubmit={handleSubmit} className="space-y-6">
+                            <form onSubmit={handleSubmit} className="space-y-6" suppressHydrationWarning>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                     <div>
                                         <label className="block text-sm font-semibold text-foreground mb-2">FULL NAME</label>
@@ -148,6 +148,7 @@ export function ContactSection() {
                                             value={formData.name}
                                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                             required
+                                            suppressHydrationWarning
                                         />
                                     </div>
                                     <div>
@@ -157,6 +158,7 @@ export function ContactSection() {
                                             value={formData.company}
                                             onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                                             required
+                                            suppressHydrationWarning
                                         />
                                     </div>
                                 </div>
@@ -169,6 +171,7 @@ export function ContactSection() {
                                             value={formData.email}
                                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                             required
+                                            suppressHydrationWarning
                                         />
                                     </div>
                                     <div>
@@ -178,19 +181,20 @@ export function ContactSection() {
                                             value={formData.budget}
                                             onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                                             required
+                                            suppressHydrationWarning
                                         >
                                             <option value="" disabled>Select Budget Range</option>
-                                            <option value="< $50k">&lt; $50k</option>
+                                            <option value="Under $50k">Under $50k</option>
                                             <option value="$50k - $100k">$50k - $100k</option>
                                             <option value="$100k - $250k">$100k - $250k</option>
-                                            <option value="$250k+">$250k+</option>
+                                            <option value="Above $250k">Above $250k</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div>
                                     <label className="block text-sm font-semibold text-foreground mb-3">EXPECTED TIMELINE</label>
                                     <div className="flex flex-wrap gap-3">
-                                        {["< 1 Month", "1-3 Months", "3-6 Months", "6+ Months"].map((timeline) => (
+                                        {["Under 1 Month", "1-3 Months", "3-6 Months", "Over 6 Months"].map((timeline) => (
                                             <button
                                                 type="button"
                                                 key={timeline}
@@ -199,6 +203,7 @@ export function ContactSection() {
                                                     ? "bg-foreground text-white border-foreground shadow-md"
                                                     : "bg-white text-secondary-text border-border-light hover:border-gray-300 hover:bg-gray-50 bg-opacity-50"
                                                     }`}
+                                                suppressHydrationWarning
                                             >
                                                 {timeline}
                                             </button>
@@ -213,6 +218,7 @@ export function ContactSection() {
                                         className="flex w-full rounded-2xl border border-border-light bg-white px-4 py-3 text-sm text-foreground shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary-500 resize-none placeholder:text-secondary-text"
                                         value={formData.message}
                                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                                        suppressHydrationWarning
                                     />
                                 </div>
                                 <div className="flex items-center gap-3 py-2">
@@ -223,6 +229,7 @@ export function ContactSection() {
                                         onClick={() => setFormData({ ...formData, nda: !formData.nda })}
                                         className={`w-5 h-5 rounded flex items-center justify-center transition-all ${formData.nda ? "bg-accent border-accent text-white" : "bg-white border border-border-light hover:border-gray-400"
                                             }`}
+                                        suppressHydrationWarning
                                     >
                                         {formData.nda && < Shield className="w-3.5 h-3.5 stroke-[3]" />}
                                     </button>
