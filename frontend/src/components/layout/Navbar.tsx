@@ -57,7 +57,7 @@ export function Navbar() {
             >
                 <Link href="/" className="flex items-center space-x-3 shrink-0">
                     <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center font-bold text-white shadow-sm">
-                        E
+                        Q
                     </div>
                     <span className="font-bold text-lg hidden lg:inline-block tracking-tight text-foreground">
                         QuntamLayerAI

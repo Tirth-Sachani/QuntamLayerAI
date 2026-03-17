@@ -49,7 +49,7 @@ export function HeroSection() {
                     >
                         <div className="inline-flex items-center px-4 py-2 rounded-full bg-white border border-border-light shadow-sm text-secondary-text text-sm font-medium mb-10 tracking-wide">
                             <span className="w-2 h-2 rounded-full bg-accent mr-2 animate-pulse" />
-                            Enterprise Infrastructure
+                            QuntamLayerAI Infrastructure
                         </div>
 
                         <h1 className="text-[2.75rem] sm:text-[3.5rem] md:text-[5rem] lg:text-[6.5rem] font-black leading-[0.95] tracking-[-0.03em] mb-8 text-foreground flex flex-col items-center w-full">

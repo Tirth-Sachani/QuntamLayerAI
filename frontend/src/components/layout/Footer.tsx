@@ -8,7 +8,7 @@ export function Footer() {
                     <div className="md:col-span-1">
                         <Link href="/" className="flex items-center space-x-3 mb-6">
                             <div className="w-8 h-8 rounded-lg bg-black flex items-center justify-center font-bold text-white shadow-sm">
-                                E
+                                Q
                             </div>
                             <span className="font-bold text-xl tracking-tight text-foreground">QuntamLayerAI</span>
                         </Link>
