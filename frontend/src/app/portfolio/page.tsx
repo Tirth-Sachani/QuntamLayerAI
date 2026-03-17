@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { CaseStudiesSection } from "@/components/sections/CaseStudiesSection";
 
 export const metadata: Metadata = {
-    title: "Case Studies | EnterpriseDev",
+    title: "Case Studies | QuntamLayerAI",
     description: "Enterprise engineering portfolios and success stories.",
 };
 

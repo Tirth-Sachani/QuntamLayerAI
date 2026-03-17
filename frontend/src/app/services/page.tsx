@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 
 export const metadata: Metadata = {
-    title: "Digital Capabilities | EnterpriseDev",
+    title: "Digital Capabilities | QuntamLayerAI",
     description: "Explore our comprehensive suite of enterprise engineering services.",
 };
 

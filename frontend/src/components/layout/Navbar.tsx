@@ -60,7 +60,7 @@ export function Navbar() {
                         E
                     </div>
                     <span className="font-bold text-lg hidden lg:inline-block tracking-tight text-foreground">
-                        EnterpriseDev
+                        QuntamLayerAI
                     </span>
                 </Link>
 
@@ -149,7 +149,7 @@ export function Navbar() {
                             </div>
 
                             <div className="mt-auto p-6 text-center text-sm text-gray-500">
-                                © 2026 VitaFlowStack
+                                © 2026 QuntamLayerAI
                             </div>
                         </motion.div>
                     </>

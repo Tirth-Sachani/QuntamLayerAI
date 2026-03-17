@@ -10,7 +10,7 @@ export function Footer() {
                             <div className="w-8 h-8 rounded-lg bg-black flex items-center justify-center font-bold text-white shadow-sm">
                                 E
                             </div>
-                            <span className="font-bold text-xl tracking-tight text-foreground">EnterpriseDev</span>
+                            <span className="font-bold text-xl tracking-tight text-foreground">QuntamLayerAI</span>
                         </Link>
                         <p className="text-sm text-secondary-text leading-relaxed">
                             Building the next generation of digital infrastructure for global enterprises. Scalable, secure, and performant.
@@ -49,7 +49,7 @@ export function Footer() {
                 </div>
 
                 <div className="mt-16 pt-8 border-t border-border-light flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-secondary-text">
-                    <p>© {new Date().getFullYear()} Enterprise Dev Agency. All systems operational.</p>
+                    <p>© {new Date().getFullYear()} QuntamLayerAI. All systems operational.</p>
                     <div className="flex space-x-8">
                         <Link href="#" className="hover:text-black transition-colors">Privacy Policy</Link>
                         <Link href="#" className="hover:text-black transition-colors">Security Terms</Link>

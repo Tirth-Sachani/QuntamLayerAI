@@ -12,12 +12,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "EnterpriseDev | Neo Minimal Engineering",
+  title: "QuntamLayerAI | Neo Minimal Engineering",
   description:
     "We build premium, scalable, and secure full-stack systems for enterprise clients. AI, Cloud, DevSecOps, and API engineering.",
   keywords: ["enterprise development", "full-stack", "AI engineering", "cloud architecture", "Next.js", "Node.js"],
   openGraph: {
-    title: "EnterpriseDev | Neo Minimal Engineering",
+    title: "QuntamLayerAI | Neo Minimal Engineering",
     description: "Premium enterprise-grade engineering for high-value clients.",
     type: "website",
   },

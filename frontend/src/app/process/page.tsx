@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 
 export const metadata: Metadata = {
-    title: "Execution Process | EnterpriseDev",
+    title: "Execution Process | QuntamLayerAI",
     description: "Our enterprise execution blueprint and engineering methodology.",
 };
 

@@ -92,7 +92,7 @@ export default function AdminLoginPage() {
                 </div>
 
                 <p className="text-center text-xs text-gray-400 mt-6">
-                    🔒 Secure Admin Access — VitaFlowStack
+                    🔒 Secure Admin Access — QuntamLayerAI
                 </p>
             </div>
         </div>

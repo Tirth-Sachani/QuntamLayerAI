@@ -23,7 +23,7 @@ exports.sendProposalNotification = async (data) => {
             <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 700; letter-spacing: -0.5px;">
                 🚀 New Project Proposal
             </h1>
-            <p style="color: #a0a0b0; margin: 8px 0 0; font-size: 14px;">VitaFlowStack Enterprise</p>
+            <p style="color: #a0a0b0; margin: 8px 0 0; font-size: 14px;">QuntamLayerAI</p>
         </div>
 
         <!-- Body -->
@@ -65,13 +65,13 @@ exports.sendProposalNotification = async (data) => {
 
         <!-- Footer -->
         <div style="background: #f8f9fa; padding: 20px 32px; text-align: center; border-top: 1px solid #e8e8e8;">
-            <p style="color: #999; font-size: 12px; margin: 0;">This is an automated notification from VitaFlowStack</p>
+            <p style="color: #999; font-size: 12px; margin: 0;">This is an automated notification from QuntamLayerAI</p>
         </div>
     </div>
     `;
 
     await transporter.sendMail({
-        from: `"VitaFlowStack" <${process.env.EMAIL_USER}>`,
+        from: `"QuntamLayerAI" <${process.env.EMAIL_USER}>`,
         to: 'tirthsachani6105@gmail.com',
         subject: `🚀 New Proposal: ${name} — ${company || 'Unknown Company'}`,
         html

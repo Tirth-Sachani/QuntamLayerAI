@@ -3,7 +3,7 @@ import { Shield, Code2, Rocket, Globe } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 
 export const metadata: Metadata = {
-    title: "About Us | EnterpriseDev",
+    title: "About Us | QuntamLayerAI",
     description: "About our engineering team and vision.",
 };
 

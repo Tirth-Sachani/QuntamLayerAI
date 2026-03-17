@@ -28,7 +28,7 @@ exports.login = async (req, res) => {
         // Generate JWT
         const token = jwt.sign(
             { email: ADMIN_EMAIL, role: 'admin' },
-            process.env.JWT_SECRET || 'vitaflowstack-secret-key-2026',
+            process.env.JWT_SECRET || 'quntamlayerai-secret-key-2026',
             { expiresIn: '1d' }
         );
 

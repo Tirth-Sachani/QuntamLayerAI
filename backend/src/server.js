@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Basic route for testing
 app.get('/api/v1/health', (req, res) => {
-    res.status(200).json({ status: 'success', message: 'Enterprise Backend API is running' });
+    res.status(200).json({ status: 'success', message: 'QuntamLayerAI Backend API is running' });
 });
 
 // Import and use routes
