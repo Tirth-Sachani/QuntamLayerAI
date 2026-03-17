@@ -87,12 +87,12 @@ export function BudgetRangeSelector({
 
   return (
     <div className={cn("space-y-6 select-none", className)}>
-      <div className="flex items-end justify-between mb-2">
+      <div className="flex items-start justify-between mb-2">
         <div className="flex flex-col">
-          <span className="text-3xl font-black tracking-tight text-black transition-all duration-300">
+          <span className="text-[2.5rem] font-bold tracking-tight text-black leading-none mb-1 transition-all duration-300">
             {formatValue(inputValue)}
           </span>
-          <span className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">
+          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em]">
             Project Investment Range
           </span>
         </div>
@@ -105,7 +105,7 @@ export function BudgetRangeSelector({
             setInputValue(val);
             onChange(val);
           }}
-          className="w-24 text-right bg-transparent border-none text-sm font-medium text-slate-400 focus:outline-none focus:text-black transition-colors"
+          className="w-16 text-right bg-transparent border-none text-sm font-semibold text-slate-400 focus:outline-none focus:text-black transition-colors pt-2"
           min={min}
           max={max}
         />

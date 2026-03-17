@@ -141,9 +141,9 @@ export function ContactSection() {
                         <div className="rounded-[32px] border border-border-light bg-white shadow-[0_20px_50px_rgba(0,0,0,0.04)] p-6 sm:p-10 md:p-12 relative z-20">
                             <h3 className="text-2xl font-bold mb-8 tracking-tight">Initialize Project</h3>
                             <form onSubmit={handleSubmit} className="space-y-6" suppressHydrationWarning>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-8">
                                     <div>
-                                        <label className="block text-sm font-semibold text-foreground mb-2">FULL NAME</label>
+                                        <label className="block text-[11px] font-bold text-foreground uppercase tracking-wider mb-3">FULL NAME</label>
                                         <Input
                                             placeholder="John Doe"
                                             value={formData.name}
@@ -153,7 +153,7 @@ export function ContactSection() {
                                         />
                                     </div>
                                     <div>
-                                        <label className="block text-sm font-semibold text-foreground mb-2">COMPANY</label>
+                                        <label className="block text-[11px] font-bold text-foreground uppercase tracking-wider mb-3">COMPANY</label>
                                         <Input
                                             placeholder="Acme Corp"
                                             value={formData.company}
@@ -163,9 +163,9 @@ export function ContactSection() {
                                         />
                                     </div>
                                 </div>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-8">
                                     <div>
-                                        <label className="block text-sm font-semibold text-foreground mb-2">WORK EMAIL</label>
+                                        <label className="block text-[11px] font-bold text-foreground uppercase tracking-wider mb-3">WORK EMAIL</label>
                                         <Input
                                             type="email"
                                             placeholder="john@acmecorp.com"
@@ -176,25 +176,25 @@ export function ContactSection() {
                                         />
                                     </div>
                                     <div>
-                                        <label className="block text-sm font-semibold text-foreground mb-4">PROJECT BUDGET</label>
+                                        <label className="block text-[11px] font-bold text-foreground uppercase tracking-wider mb-3">PROJECT BUDGET</label>
                                         <BudgetRangeSelector
                                             value={parseInt(formData.budget) || 2500}
                                             onChange={(val) => setFormData({ ...formData, budget: val.toString() })}
-                                            className="px-2"
+                                            className="px-0"
                                         />
                                     </div>
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-semibold text-foreground mb-3">EXPECTED TIMELINE</label>
+                                    <label className="block text-[11px] font-bold text-foreground uppercase tracking-wider mb-4">EXPECTED TIMELINE</label>
                                     <div className="flex flex-wrap gap-3">
                                         {["Under 1 Month", "1-3 Months", "3-6 Months", "Over 6 Months"].map((timeline) => (
                                             <button
                                                 type="button"
                                                 key={timeline}
                                                 onClick={() => setFormData({ ...formData, project_type: timeline })}
-                                                className={`px-5 py-2.5 rounded-full border text-sm font-medium transition-all ${formData.project_type === timeline
-                                                    ? "bg-foreground text-white border-foreground shadow-md"
-                                                    : "bg-white text-secondary-text border-border-light hover:border-gray-300 hover:bg-gray-50 bg-opacity-50"
+                                                className={`px-6 py-4 rounded-[20px] border text-[13px] font-bold transition-all ${formData.project_type === timeline
+                                                    ? "bg-black text-white border-black shadow-lg"
+                                                    : "bg-white text-slate-600 border-slate-100 hover:border-slate-300 hover:bg-slate-50"
                                                     }`}
                                                 suppressHydrationWarning
                                             >
@@ -204,11 +204,11 @@ export function ContactSection() {
                                     </div>
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-semibold text-foreground mb-2">PROJECT BRIEF</label>
+                                    <label className="block text-[11px] font-bold text-foreground uppercase tracking-wider mb-3">PROJECT BRIEF</label>
                                     <textarea
                                         rows={4}
                                         placeholder="Describe your technical requirements..."
-                                        className="flex w-full rounded-2xl border border-border-light bg-white px-4 py-3 text-sm text-foreground shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary-500 resize-none placeholder:text-secondary-text"
+                                        className="flex w-full rounded-3xl border border-slate-100 bg-white px-6 py-5 text-[15px] text-foreground shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-black/10 resize-none placeholder:text-slate-400"
                                         value={formData.message}
                                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                         suppressHydrationWarning
