@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "../ui/Button";
 import { Input } from "../ui/Input";
 import { Shield, Lock, ArrowRight } from "lucide-react";
+import { BudgetRangeSelector } from "../ui/BudgetRangeSelector";
 
 export function ContactSection() {
     const { scrollY } = useScroll();
@@ -175,20 +176,12 @@ export function ContactSection() {
                                         />
                                     </div>
                                     <div>
-                                        <label className="block text-sm font-semibold text-foreground mb-2">PROJECT BUDGET</label>
-                                        <select
-                                            className="flex h-12 w-full rounded-full border border-border-light bg-white px-4 py-2 text-sm text-foreground shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary-500 appearance-none cursor-pointer"
-                                            value={formData.budget}
-                                            onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                                            required
-                                            suppressHydrationWarning
-                                        >
-                                            <option value="" disabled>Select Budget Range</option>
-                                            <option value="Under $50k">Under $50k</option>
-                                            <option value="$50k - $100k">$50k - $100k</option>
-                                            <option value="$100k - $250k">$100k - $250k</option>
-                                            <option value="Above $250k">Above $250k</option>
-                                        </select>
+                                        <label className="block text-sm font-semibold text-foreground mb-4">PROJECT BUDGET</label>
+                                        <BudgetRangeSelector
+                                            value={parseInt(formData.budget) || 25000}
+                                            onChange={(val) => setFormData({ ...formData, budget: val.toString() })}
+                                            className="px-2"
+                                        />
                                     </div>
                                 </div>
                                 <div>
