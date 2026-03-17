@@ -52,7 +52,7 @@ export function HeroSection() {
                             Enterprise Infrastructure
                         </div>
 
-                        <h1 className="text-[3.5rem] md:text-[5rem] lg:text-[6.5rem] font-black leading-[0.95] tracking-[-0.03em] mb-8 text-foreground flex flex-col items-center w-full">
+                        <h1 className="text-[2.75rem] sm:text-[3.5rem] md:text-[5rem] lg:text-[6.5rem] font-black leading-[0.95] tracking-[-0.03em] mb-8 text-foreground flex flex-col items-center w-full">
                             <RainText text="Built for scale." onComplete={() => setPhase1Finished(true)} />{" "}
                             <div className="block w-full text-black mt-2 pb-2 min-h-[1.2em]">
                                 {phase1Finished && (

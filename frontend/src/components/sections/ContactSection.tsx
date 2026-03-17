@@ -102,7 +102,7 @@ export function ContactSection() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     >
-                        <h2 className="text-5xl md:text-6xl font-black leading-[1.05] tracking-tight mb-8">
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl font-black leading-[1.05] tracking-tight mb-8">
                             Engineer Your{" "}
                             <span className="text-gradient">Next Breakthrough</span>
                         </h2>
@@ -137,7 +137,7 @@ export function ContactSection() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
                     >
-                        <div className="rounded-[32px] border border-border-light bg-white shadow-[0_20px_50px_rgba(0,0,0,0.04)] p-10 md:p-12 relative z-20">
+                        <div className="rounded-[32px] border border-border-light bg-white shadow-[0_20px_50px_rgba(0,0,0,0.04)] p-6 sm:p-10 md:p-12 relative z-20">
                             <h3 className="text-2xl font-bold mb-8 tracking-tight">Initialize Project</h3>
                             <form onSubmit={handleSubmit} className="space-y-6" suppressHydrationWarning>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

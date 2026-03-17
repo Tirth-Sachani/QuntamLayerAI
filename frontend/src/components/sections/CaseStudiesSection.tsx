@@ -89,7 +89,7 @@ export function CaseStudiesSection() {
                         >
                             <Tilt glareEnable={true} glareMaxOpacity={0.03} glareColor="#000" scale={1.01} transitionSpeed={2000} className="h-full">
                                 <div className="group h-full overflow-hidden rounded-[32px] bg-white border border-border-light shadow-[0_20px_40px_rgba(0,0,0,0.04)] hover:-translate-y-2 transition-transform duration-500">
-                                    <div className="p-10 md:p-14">
+                                    <div className="p-6 sm:p-10 md:p-14">
                                         <span className="inline-block px-3 py-1 bg-gray-100 text-secondary-text text-sm font-medium rounded-full mb-8">
                                             {study.client}
                                         </span>
