@@ -60,6 +60,7 @@ export default function AdminLoginPage() {
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder="admin@example.com"
                                 required
+                                suppressHydrationWarning
                                 className="w-full h-12 px-4 rounded-xl bg-gray-50 border border-gray-200 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
                             />
                         </div>
@@ -71,6 +72,7 @@ export default function AdminLoginPage() {
                                 onChange={(e) => setPassword(e.target.value)}
                                 placeholder="••••••••"
                                 required
+                                suppressHydrationWarning
                                 className="w-full h-12 px-4 rounded-xl bg-gray-50 border border-gray-200 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
                             />
                         </div>
@@ -84,6 +86,7 @@ export default function AdminLoginPage() {
                         <button
                             type="submit"
                             disabled={loading}
+                            suppressHydrationWarning
                             className="w-full h-12 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white rounded-xl font-semibold text-sm transition-colors shadow-sm shadow-blue-600/20"
                         >
                             {loading ? "Signing in..." : "Sign In"}
