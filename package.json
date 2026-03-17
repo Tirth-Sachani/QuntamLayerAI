@@ -4,5 +4,13 @@
   "workspaces": [
     "frontend",
     "backend"
-  ]
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w quntamlayerai-frontend\" \"npm run dev -w quntamlayerai-backend\"",
+    "dev:frontend": "npm run dev -w quntamlayerai-frontend",
+    "dev:backend": "npm run dev -w quntamlayerai-backend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
 }
