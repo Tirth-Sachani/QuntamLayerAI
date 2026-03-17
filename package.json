@@ -1,5 +1,5 @@
 {
-  "name": "vitaflowstack-root",
+  "name": "quantumlayerai-root",
   "private": true,
   "workspaces": [
     "frontend",
