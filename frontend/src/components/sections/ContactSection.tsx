@@ -178,7 +178,7 @@ export function ContactSection() {
                                     <div>
                                         <label className="block text-sm font-semibold text-foreground mb-4">PROJECT BUDGET</label>
                                         <BudgetRangeSelector
-                                            value={parseInt(formData.budget) || 25000}
+                                            value={parseInt(formData.budget) || 2500}
                                             onChange={(val) => setFormData({ ...formData, budget: val.toString() })}
                                             className="px-2"
                                         />

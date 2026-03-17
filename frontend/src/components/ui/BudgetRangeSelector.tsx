@@ -23,7 +23,7 @@ const presets = [
 export function BudgetRangeSelector({
   value,
   onChange,
-  min = 1000,
+  min = 2500,
   max = 500000,
   className,
 }: BudgetRangeSelectorProps) {
