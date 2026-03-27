@@ -24,20 +24,21 @@ export default function AdminLeadsPage() {
     const [view, setView] = useState<"kanban" | "table">("kanban");
     const router = useRouter();
 
-    const fetchLeads = () => {
-        const token = localStorage.getItem("admin_token");
-        if (!token) { router.push("/admin"); return; }
+    useEffect(() => { 
+        const fetchLeadsInner = () => {
+            const token = localStorage.getItem("admin_token");
+            if (!token) { router.push("/admin"); return; }
 
-        fetch("http://localhost:5000/api/v1/admin/leads", {
-            headers: { Authorization: `Bearer ${token}` },
-        })
-            .then((res) => { if (!res.ok) throw new Error(); return res.json(); })
-            .then((data) => setLeads(data.leads || []))
-            .catch(() => { localStorage.removeItem("admin_token"); router.push("/admin"); })
-            .finally(() => setLoading(false));
-    };
-
-    useEffect(() => { fetchLeads(); }, []);
+            fetch("http://localhost:5000/api/v1/admin/leads", {
+                headers: { Authorization: `Bearer ${token}` },
+            })
+                .then((res) => { if (!res.ok) throw new Error(); return res.json(); })
+                .then((data) => setLeads(data.leads || []))
+                .catch(() => { localStorage.removeItem("admin_token"); router.push("/admin"); })
+                .finally(() => setLoading(false));
+        };
+        fetchLeadsInner(); 
+    }, [router]);
 
     const updateStatus = async (id: string, status: string) => {
         const token = localStorage.getItem("admin_token");
@@ -88,7 +89,7 @@ export default function AdminLeadsPage() {
             </div>
 
             {view === "kanban" ? (
-                <KanbanView leads={leads} updateStatus={updateStatus} deleteLead={deleteLead} router={router} />
+                <KanbanView leads={leads} updateStatus={updateStatus} router={router} />
             ) : (
                 <TableView leads={leads} updateStatus={updateStatus} deleteLead={deleteLead} router={router} />
             )}
@@ -96,7 +97,7 @@ export default function AdminLeadsPage() {
     );
 }
 
-function KanbanView({ leads, updateStatus, deleteLead, router }: { leads: Lead[]; updateStatus: (id: string, status: string) => void; deleteLead: (id: string) => void; router: ReturnType<typeof useRouter> }) {
+function KanbanView({ leads, updateStatus, router }: { leads: Lead[]; updateStatus: (id: string, status: string) => void; router: ReturnType<typeof useRouter> }) {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {STATUSES.map((status) => {

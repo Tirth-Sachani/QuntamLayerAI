@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Server, Database, Globe, Cpu, Shield, Zap } from "lucide-react";
+import { Database, Globe, Cpu } from "lucide-react";
 
 const tiers = [
     { icon: Globe, label: "Frontend", desc: "Next.js + React with SSR/SSG for blazing-fast page loads", color: "from-blue-500 to-cyan-500" },

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { Code2, GitBranch, Shield, Zap, Globe, Server, X, ArrowRight } from "lucide-react";
-import { Card } from "../ui/Card";
+
 
 const services = [
     {

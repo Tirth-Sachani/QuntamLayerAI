@@ -70,7 +70,7 @@ export function ReviewCard({ review, isHovered, hasHoveredSibling, onHoverStart,
             </div>
 
             <p className="mt-4 text-white/90 text-[15px] leading-relaxed line-clamp-3 font-light">
-                "{review.review}"
+                &quot;{review.review}&quot;
             </p>
         </motion.div>
     );

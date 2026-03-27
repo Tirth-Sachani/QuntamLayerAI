@@ -17,12 +17,14 @@ interface RainTextProps {
  */
 export function RainText({ text, className = "", delay = 0, onComplete }: RainTextProps) {
     const containerRef = useRef<HTMLSpanElement>(null);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [isHydrated, setIsHydrated] = useState(false);
 
     // Split into words while preserving spaces
     const words = text.split(" ");
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setIsHydrated(true);
         if (!containerRef.current) return;
 
@@ -89,7 +91,7 @@ export function RainText({ text, className = "", delay = 0, onComplete }: RainTe
         // This is safer than document.readyState for components that mount late (Phase 2)
         const timer = setTimeout(startAnimation, 50);
         return () => clearTimeout(timer);
-    }, [delay, text]);
+    }, [delay, text, onComplete]);
 
     return (
         <span ref={containerRef} className={`flex flex-wrap justify-center items-center w-full relative ${className}`}>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 interface Lead {
     id: string;
@@ -73,7 +74,12 @@ export default function AdminDashboard() {
             <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
                 <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
                     <h2 className="text-lg font-bold text-gray-900">Recent Leads</h2>
-                    <a href="/admin/leads" className="text-sm text-blue-600 hover:text-blue-700 font-medium">View All →</a>
+                    <Link
+                      href="/admin/leads/"
+                      className="text-sm text-blue-400 hover:text-blue-300 transition-colors"
+                    >
+                      View All Leads &rarr;
+                    </Link>
                 </div>
                 <div className="overflow-x-auto">
                     <table className="w-full">

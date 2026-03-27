@@ -46,7 +46,7 @@ export function ProcessSection() {
 
         const cards = gsap.utils.toArray<HTMLElement>(".process-card");
 
-        let ctx = gsap.context(() => {
+        const ctx = gsap.context(() => {
             const mm = gsap.matchMedia();
 
             mm.add("(min-width: 768px)", () => {
