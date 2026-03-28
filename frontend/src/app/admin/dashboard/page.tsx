@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { API_BASE } from "@/services/api";
 
 interface Lead {
     id: string;
@@ -26,7 +27,7 @@ export default function AdminDashboard() {
         const token = localStorage.getItem("admin_token");
         if (!token) { router.push("/admin"); return; }
 
-        fetch("http://localhost:5000/api/v1/admin/leads", {
+        fetch(`${API_BASE}/api/v1/admin/leads`, {
             headers: { Authorization: `Bearer ${token}` },
         })
             .then((res) => { if (!res.ok) throw new Error("Unauthorized"); return res.json(); })

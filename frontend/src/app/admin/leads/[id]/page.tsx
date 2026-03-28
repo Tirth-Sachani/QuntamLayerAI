@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
+import { API_BASE } from "@/services/api";
 
 interface Lead {
     id: string;
@@ -30,7 +31,7 @@ export default function LeadDetailPage() {
         const token = localStorage.getItem("admin_token");
         if (!token) { router.push("/admin"); return; }
 
-        fetch(`http://localhost:5000/api/v1/admin/leads/${id}`, {
+        fetch(`${API_BASE}/api/v1/admin/leads/${id}`, {
             headers: { Authorization: `Bearer ${token}` },
         })
             .then((res) => { if (!res.ok) throw new Error(); return res.json(); })
@@ -41,7 +42,7 @@ export default function LeadDetailPage() {
 
     const updateStatus = async (status: string) => {
         const token = localStorage.getItem("admin_token");
-        await fetch(`http://localhost:5000/api/v1/admin/leads/${id}`, {
+        await fetch(`${API_BASE}/api/v1/admin/leads/${id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
             body: JSON.stringify({ status }),
@@ -52,7 +53,7 @@ export default function LeadDetailPage() {
     const deleteLead = async () => {
         if (!confirm("Are you sure you want to delete this lead?")) return;
         const token = localStorage.getItem("admin_token");
-        await fetch(`http://localhost:5000/api/v1/admin/leads/${id}`, {
+        await fetch(`${API_BASE}/api/v1/admin/leads/${id}`, {
             method: "DELETE",
             headers: { Authorization: `Bearer ${token}` },
         });

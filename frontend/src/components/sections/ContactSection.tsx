@@ -6,6 +6,7 @@ import { Button } from "../ui/Button";
 import { Input } from "../ui/Input";
 import { Shield, Lock, ArrowRight } from "lucide-react";
 import { BudgetRangeSelector } from "../ui/BudgetRangeSelector";
+import { API_BASE } from "@/services/api";
 
 export function ContactSection() {
     const { scrollY } = useScroll();
@@ -42,7 +43,7 @@ export function ContactSection() {
         setError(null);
         console.log("Submitting form data:", formData);
         try {
-            const res = await fetch("http://localhost:5000/api/v1/lead", {
+            const res = await fetch(`${API_BASE}/api/v1/lead`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
