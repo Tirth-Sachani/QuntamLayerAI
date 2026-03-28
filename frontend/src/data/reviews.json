@@ -17,7 +17,7 @@
     },
     {
         "id": 3,
-        "name": "Dharmik SOlanki",
+        "name": "Dharmik Solanki",
         "company": "Ornivus Infotech",
         "rating": 5,
         "image": "https://i.pravatar.cc/150?u=emily",
@@ -25,7 +25,7 @@
     },
     {
         "id": 4,
-        "name": "David Wilson",
+        "name": "Harsh Chotaliya",
         "company": "HealthData Inc.",
         "rating": 4,
         "image": "https://i.pravatar.cc/150?u=david",
@@ -33,7 +33,7 @@
     },
     {
         "id": 5,
-        "name": "Jessica Taylor",
+        "name": "Bhavesh Jadav",
         "company": "E-commerce Plus",
         "rating": 5,
         "image": "https://i.pravatar.cc/150?u=jessica",
@@ -41,8 +41,8 @@
     },
     {
         "id": 6,
-        "name": "James Anderson",
-        "company": "Logistics Next",
+        "name": "Jay Patel",
+        "company": "NextGen Solutions",
         "rating": 5,
         "image": "https://i.pravatar.cc/150?u=james",
         "review": "A highly reliable enterprise deployment. The architecture handles our load perfectly."
