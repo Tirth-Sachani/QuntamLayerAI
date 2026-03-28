@@ -27,7 +27,7 @@ export default function AdminDashboard() {
         const token = localStorage.getItem("admin_token");
         if (!token) { router.push("/admin"); return; }
 
-        fetch(`${API_BASE}/api/v1/admin/leads`, {
+        fetch(`${API_BASE}/api/admin/leads`, {
             headers: { Authorization: `Bearer ${token}` },
         })
             .then((res) => { if (!res.ok) throw new Error("Unauthorized"); return res.json(); })

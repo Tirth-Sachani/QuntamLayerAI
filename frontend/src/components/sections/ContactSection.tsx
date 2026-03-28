@@ -43,7 +43,7 @@ export function ContactSection() {
         setError(null);
         console.log("Submitting form data:", formData);
         try {
-            const res = await fetch(`${API_BASE}/api/v1/lead`, {
+            const res = await fetch(`${API_BASE}/api/lead`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),

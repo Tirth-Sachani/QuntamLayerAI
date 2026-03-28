@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Basic route for testing
-app.get('/api/v1/health', (req, res) => {
+app.get('/api/health', (req, res) => {
     res.status(200).json({ status: 'success', message: 'QuntamLayerAI Backend API is running' });
 });
 
@@ -23,10 +23,10 @@ const leadRoutes = require('./routes/leadRoutes');
 const authRoutes = require('./routes/authRoutes');
 const adminLeadRoutes = require('./routes/adminLeadRoutes');
 
-app.use('/api/v1/contact', contactRoutes);
-app.use('/api/v1/lead', leadRoutes);
-app.use('/api/v1/admin', authRoutes);
-app.use('/api/v1/admin/leads', adminLeadRoutes);
+app.use('/api/contact', contactRoutes);
+app.use('/api/lead', leadRoutes);
+app.use('/api/admin', authRoutes);
+app.use('/api/admin/leads', adminLeadRoutes);
 
 // Error Handling Middleware
 app.use((err, req, res, next) => {
