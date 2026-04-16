@@ -10,7 +10,7 @@ export function Footer() {
                         <Link href="/" className="flex items-center space-x-3 mb-6">
                             <div className="relative w-8 h-8 rounded-lg bg-black flex items-center justify-center shadow-sm overflow-hidden border border-white/10">
                                 <Image
-                                    src="/next.svg"
+                                    src="/favicon.ico"
                                     alt="Logo"
                                     width={32}
                                     height={32}
