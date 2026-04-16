@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
@@ -16,8 +17,14 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <aside className="w-64 bg-white border-r border-gray-200 flex flex-col shrink-0">
                 <div className="h-16 flex items-center px-6 border-b border-gray-100">
                     <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                            <span className="text-white text-sm font-bold">Q</span>
+                        <div className="relative w-8 h-8 bg-black rounded-lg flex items-center justify-center shadow-sm overflow-hidden border border-white/10">
+                            <Image
+                                src="/next.svg"
+                                alt="Logo"
+                                width={32}
+                                height={32}
+                                className="object-contain"
+                            />
                         </div>
                         <span className="text-lg font-bold tracking-tight text-gray-900">QuntamLayerAI CRM</span>
                     </div>

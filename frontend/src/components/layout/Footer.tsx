@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export function Footer() {
     return (
@@ -7,8 +8,14 @@ export function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
                     <div className="md:col-span-1">
                         <Link href="/" className="flex items-center space-x-3 mb-6">
-                            <div className="w-8 h-8 rounded-lg bg-black flex items-center justify-center font-bold text-white shadow-sm">
-                                Q
+                            <div className="relative w-8 h-8 rounded-lg bg-black flex items-center justify-center shadow-sm overflow-hidden border border-white/10">
+                                <Image
+                                    src="/next.svg"
+                                    alt="Logo"
+                                    width={32}
+                                    height={32}
+                                    className="object-contain"
+                                />
                             </div>
                             <span className="font-bold text-xl tracking-tight text-foreground">QuntamLayerAI</span>
                         </Link>
