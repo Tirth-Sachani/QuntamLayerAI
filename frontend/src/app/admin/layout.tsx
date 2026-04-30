@@ -2,6 +2,86 @@
 
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { useState, useEffect, useRef } from "react";
+import { API_BASE } from "@/services/api";
+
+function NotificationBell() {
+    const [newLeadsCount, setNewLeadsCount] = useState(0);
+    const prevCountRef = useRef(0);
+    const initialLoadRef = useRef(true);
+
+    const playNotificationSound = () => {
+        try {
+            const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
+            if (!AudioContext) return;
+            const audioCtx = new AudioContext();
+            const oscillator = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(880, audioCtx.currentTime); // A5
+            oscillator.frequency.exponentialRampToValueAtTime(440, audioCtx.currentTime + 0.1);
+            
+            gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.5);
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            
+            oscillator.start();
+            oscillator.stop(audioCtx.currentTime + 0.5);
+        } catch (e) {
+            console.error("Audio playback failed", e);
+        }
+    };
+
+    useEffect(() => {
+        const fetchLeads = async () => {
+            const token = localStorage.getItem("admin_token");
+            if (!token) return;
+
+            try {
+                const res = await fetch(`${API_BASE}/api/admin/leads`, {
+                    headers: { Authorization: `Bearer ${token}` },
+                });
+                if (res.ok) {
+                    const data = await res.json();
+                    const leads = data.leads || [];
+                    const count = leads.filter((l: any) => l.status === "new" || l.status === "New").length;
+                    
+                    if (initialLoadRef.current) {
+                        if (count > 0) playNotificationSound();
+                        initialLoadRef.current = false;
+                    } else if (count > prevCountRef.current) {
+                        playNotificationSound();
+                    }
+                    
+                    prevCountRef.current = count;
+                    setNewLeadsCount(count);
+                }
+            } catch (err) {
+                console.error("Failed to fetch leads for notifications", err);
+            }
+        };
+
+        fetchLeads();
+        const interval = setInterval(fetchLeads, 10000); // poll every 10 seconds
+
+        return () => clearInterval(interval);
+    }, []);
+
+    return (
+        <button className="relative w-10 h-10 rounded-lg bg-gray-50 border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-100 transition">
+            🔔
+            {newLeadsCount > 0 && (
+                <span className="absolute top-1 right-1 flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500 border-2 border-white"></span>
+                </span>
+            )}
+        </button>
+    );
+}
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
@@ -57,9 +137,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                         />
                     </div>
                     <div className="flex items-center gap-3">
-                        <button className="w-10 h-10 rounded-lg bg-gray-50 border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-100 transition">
-                            🔔
-                        </button>
+                        <NotificationBell />
                         <button className="w-10 h-10 rounded-lg bg-gray-50 border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-100 transition">
                             ⚙️
                         </button>
