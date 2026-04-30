@@ -1,14 +1,17 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { API_BASE } from "@/services/api";
 
 function NotificationBell() {
     const [newLeadsCount, setNewLeadsCount] = useState(0);
+    const [newLeads, setNewLeads] = useState<any[]>([]);
+    const [isOpen, setIsOpen] = useState(false);
     const prevCountRef = useRef(0);
     const initialLoadRef = useRef(true);
+    const router = useRouter();
 
     const playNotificationSound = () => {
         try {
@@ -47,7 +50,8 @@ function NotificationBell() {
                 if (res.ok) {
                     const data = await res.json();
                     const leads = data.leads || [];
-                    const count = leads.filter((l: any) => l.status === "new" || l.status === "New").length;
+                    const newLeadsFiltered = leads.filter((l: any) => l.status === "new" || l.status === "New");
+                    const count = newLeadsFiltered.length;
                     
                     if (initialLoadRef.current) {
                         if (count > 0) playNotificationSound();
@@ -58,6 +62,7 @@ function NotificationBell() {
                     
                     prevCountRef.current = count;
                     setNewLeadsCount(count);
+                    setNewLeads(newLeadsFiltered.slice(0, 5)); // Keep top 5 for dropdown
                 }
             } catch (err) {
                 console.error("Failed to fetch leads for notifications", err);
@@ -70,16 +75,66 @@ function NotificationBell() {
         return () => clearInterval(interval);
     }, []);
 
+    // Close dropdown when clicking outside
+    useEffect(() => {
+        if (!isOpen) return;
+        const handleClick = (e: MouseEvent) => {
+            if (!(e.target as Element).closest('.notification-dropdown')) {
+                setIsOpen(false);
+            }
+        };
+        document.addEventListener('mousedown', handleClick);
+        return () => document.removeEventListener('mousedown', handleClick);
+    }, [isOpen]);
+
     return (
-        <button className="relative w-10 h-10 rounded-lg bg-gray-50 border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-100 transition">
-            🔔
-            {newLeadsCount > 0 && (
-                <span className="absolute top-1 right-1 flex h-3 w-3">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500 border-2 border-white"></span>
-                </span>
+        <div className="relative notification-dropdown">
+            <button 
+                onClick={() => setIsOpen(!isOpen)}
+                className="relative w-10 h-10 rounded-lg bg-gray-50 border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-100 transition"
+            >
+                🔔
+                {newLeadsCount > 0 && (
+                    <span className="absolute top-1 right-1 flex h-3 w-3">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500 border-2 border-white"></span>
+                    </span>
+                )}
+            </button>
+
+            {isOpen && (
+                <div className="absolute right-0 mt-2 w-80 bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden z-50">
+                    <div className="px-4 py-3 border-b border-gray-100 flex justify-between items-center">
+                        <h3 className="font-semibold text-gray-900">Notifications</h3>
+                        <span className="text-xs font-medium bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">{newLeadsCount} New</span>
+                    </div>
+                    <div className="max-h-80 overflow-y-auto">
+                        {newLeads.length > 0 ? (
+                            newLeads.map((lead) => (
+                                <div 
+                                    key={lead.id} 
+                                    onClick={() => { setIsOpen(false); router.push(`/admin/leads/${lead.id}`); }}
+                                    className="px-4 py-3 border-b border-gray-50 hover:bg-gray-50 cursor-pointer transition flex items-start gap-3"
+                                >
+                                    <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shrink-0 mt-0.5">
+                                        📄
+                                    </div>
+                                    <div>
+                                        <p className="text-sm font-medium text-gray-900">New lead from {lead.name}</p>
+                                        <p className="text-xs text-gray-500 mt-0.5 truncate w-52">{lead.email}</p>
+                                    </div>
+                                </div>
+                            ))
+                        ) : (
+                            <div className="px-4 py-8 text-center text-sm text-gray-500 flex flex-col items-center">
+                                <span className="text-2xl mb-2">🎉</span>
+                                All caught up! No new leads.
+                            </div>
+                        )}
+                    </div>
+                </div>
             )}
-        </button>
+        </div>
     );
 }
 
